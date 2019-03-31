@@ -12,6 +12,7 @@
     <p v-if="state.num == 4">How would you like to provide help?</p>
     <textarea v-model="message" v-if="state.num == 3 || state.num == 4" />
     <button v-if="state.num == 3 || state.num == 4" v-on:click="addMessage()">Next</button>
+    
 
   </div>
 </template>
@@ -49,7 +50,13 @@ export default class App extends Vue {
   }
 
   addMessage() {
-    
+    console.log(this.message);
+    if(this.state.num == 3){
+      this.state.num = 5; //need help
+    }
+    else if(this.state.num == 4) {
+      this.state.num = 5; //give help
+    }
   }
 }
 </script>
